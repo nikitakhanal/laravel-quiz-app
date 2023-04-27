@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\OptionController;
 use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\GameController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,7 @@ Route::post('/admin', [AdminController::class, 'login'])->name('adminLogin');
 Route::get('/logout', [AdminController::class, 'logout'])->name('adminLogout');
 Route::post('/questions', [QuestionController::class, 'store'])->name('createQuestion');
 Route::get('/questions', [QuestionController::class, 'show']);
+Route::get('/show', [OptionController::class, 'show'])->name('game.show');
 Route::post('/options', [OptionController::class, 'store']);
 Route::post('/player', [PlayerController::class, 'store']);
+Route::get('/game', [GameController::class, 'index'])->name('game');
