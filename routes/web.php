@@ -3,9 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\QuestionController;
-use App\Http\Controllers\OptionController;
-use App\Http\Controllers\PlayerController;
-use App\Http\Controllers\GameController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +23,4 @@ Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/adminDashboard', [AdminController::class, 'show']);
 Route::post('/admin', [AdminController::class, 'login'])->name('adminLogin');
 Route::get('/logout', [AdminController::class, 'logout'])->name('adminLogout');
+Route::post('/questions', [QuestionController::class, 'store'])->name('createQuestion');
