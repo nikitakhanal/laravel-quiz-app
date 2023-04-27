@@ -13,6 +13,13 @@ class QuestionController extends Controller
         $question->question = $data['question'];
         $question->difficulty = $data['difficulty'];
         $question->save();
-        return "Question saved successfully";
+
+        $questionId = Question::orderByDesc('created_at')->first('id');
+        return array('questionId' => $questionId->id);
+    }
+
+    function show(){
+        $question = Question::all();
+        return view('adminDashboard1')->with(compact('question'));
     }
 }

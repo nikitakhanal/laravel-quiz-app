@@ -24,3 +24,4 @@ Route::get('/adminDashboard', [AdminController::class, 'show']);
 Route::post('/admin', [AdminController::class, 'login'])->name('adminLogin');
 Route::get('/logout', [AdminController::class, 'logout'])->name('adminLogout');
 Route::post('/questions', [QuestionController::class, 'store'])->name('createQuestion');
+Route::get('/questions', [QuestionController::class, 'show']);
