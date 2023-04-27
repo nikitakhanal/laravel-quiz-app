@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\OptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,4 @@ Route::post('/admin', [AdminController::class, 'login'])->name('adminLogin');
 Route::get('/logout', [AdminController::class, 'logout'])->name('adminLogout');
 Route::post('/questions', [QuestionController::class, 'store'])->name('createQuestion');
 Route::get('/questions', [QuestionController::class, 'show']);
+Route::post('/options', [OptionController::class, 'store']);
