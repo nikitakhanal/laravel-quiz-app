@@ -11,6 +11,6 @@ class PlayerController extends Controller
         $player = new Player();
         $player->name = $req->name;
         $player->save();
-        return "Player saved successfully";
+        return route('game.show');
     }
 }
