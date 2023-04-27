@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\OptionController;
+use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\GameController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/adminDashboard', [AdminController::class, 'show']);
+Route::post('/admin', [AdminController::class, 'login'])->name('adminLogin');
+Route::get('/logout', [AdminController::class, 'logout'])->name('adminLogout');
