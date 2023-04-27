@@ -22,21 +22,19 @@ class AdminController extends Controller
 
     function login(Request $req){
         if($req->email == "admin@gmail.com" && $req->password == "password"){
+            $req->session()->put('email', $req->email);
             return redirect('adminDashboard');
         }else {
             return "Incorrect username or password";
         }
+
         // $data = $req->input();
-        // $req->session()->put('email', $data['email']);
-        // return redirect('adminDashboard');
-        
-        if(session()->has('email')){
-            return redirect('adminDashboard');
-        }
-        else{
-            return redirect('admin');
-        }
-        
+        // if($data['email']=="admin@gmail.com" && $data['password'] == "password"){
+        //     $req->session()->put('email', $data['email']);
+        //     return redirect('adminDashboard');        
+        // }else{
+        //     return "Incorrect username or password";
+        // }
     }
 
     function logout(){
