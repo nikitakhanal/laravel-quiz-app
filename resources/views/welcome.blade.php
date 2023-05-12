@@ -30,7 +30,7 @@
 
 
             {{-- form starts --}}
-          <form action="" class="userForm">
+          <form action="{{URL('player')}}" class="userForm" method="POST">
             @csrf
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="username">Username: </label>
@@ -57,31 +57,31 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <script>
-        (
-            function(){
-                const form = document.querySelector(".userForm");
-                const name = document.querySelector('[name="username"]');
-                const token = document.querySelector('[name="_token"]');
+        // (
+        //     function(){
+        //         const form = document.querySelector(".userForm");
+        //         const name = document.querySelector('[name="username"]');
+        //         const token = document.querySelector('[name="_token"]');
 
-                form.addEventListener("submit", async function(e){
-                    e.preventDefault();
+        //         form.addEventListener("submit", async function(e){
+        //             e.preventDefault();
 
-                    const res = await fetch("/player", {
-                        method: "POST",
-                        headers: {
-                            "content-type" : "application/json",
-                            "X-CSRF-Token": token.value
-                        },
-                        credentials: "same-origin",
-                        body: JSON.stringify({
-                            name: name.value
-                        })
-                    });
-                    const data = await res.text();
-                    document.location.href = data;
-                })
-            }
-        )();
+        //             const res = await fetch("/player", {
+        //                 method: "POST",
+        //                 headers: {
+        //                     "content-type" : "application/json",
+        //                     "X-CSRF-Token": token.value
+        //                 },
+        //                 credentials: "same-origin",
+        //                 body: JSON.stringify({
+        //                     name: name.value
+        //                 })
+        //             });
+        //             const data = await res.text();
+        //             document.location.href = data;
+        //         })
+        //     }
+        // )();
     </script>
 
 </body>

@@ -9,8 +9,14 @@ class PlayerController extends Controller
 {
     public function store(Request $req){
         $player = new Player();
-        $player->name = $req->name;
+        $player->name = $req->username;
         $player->save();
-        return route('game.show');
+
+        $playerId = Player::orderByDesc('created_at')->first('id');
+        $data = $playerId->id;
+        // return $data." player Id saved successfully";
+        return redirect()->route("game.show");
+
+        // return redirect()->action([OptionController::class, 'show'], ['playerId' => $data]); 
     }
 }
