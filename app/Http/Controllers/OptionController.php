@@ -24,7 +24,8 @@ class OptionController extends Controller
         // ->select('questions.question as Question', 'options.options as Options')
         ->select('*')
         ->get();  
-        
+        $result = json_decode($result);
+        shuffle($result);
         // return view('game')->with(["result"=>$result, "playerId"=>$playerId]);
         return view('game')->with(["result"=>$result]);
     }
