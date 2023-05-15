@@ -15,8 +15,8 @@ class PlayerController extends Controller
         $playerId = Player::orderByDesc('created_at')->first('id');
         $data = $playerId->id;
         // return $data." player Id saved successfully";
-        return redirect()->route("game.show");
+        // return redirect()->route("game.show");
 
-        // return redirect()->action([OptionController::class, 'show'], ['playerId' => $data]); 
+        return redirect()->action([OptionController::class, 'show'], ['playerId' => $data]); 
     }
 }

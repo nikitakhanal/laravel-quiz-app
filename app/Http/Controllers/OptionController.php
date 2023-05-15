@@ -18,7 +18,7 @@ class OptionController extends Controller
     }
 
     public function show(){
-        // $playerId = request()->get('playerId');
+        $playerId = request()->get('playerId');
         $result = DB::table('options')
         ->join('questions', 'options.questionId', '=', 'questions.id')
         // ->select('questions.question as Question', 'options.options as Options')
@@ -26,8 +26,8 @@ class OptionController extends Controller
         ->get();  
         $result = json_decode($result);
         shuffle($result);
-        // return view('game')->with(["result"=>$result, "playerId"=>$playerId]);
-        return view('game')->with(["result"=>$result]);
+        return view('game')->with(["result"=>$result, "playerId"=>$playerId]);
+        // return view('game')->with(["result"=>$result]);
     }
 }
 

@@ -27,7 +27,7 @@
                         {{-- <div class="wrapper" style=" width:80vw"> --}}
                           <h3 class="question">{{ $field->question }}</h3> <br/>
                           <h3 class="questionId" style="display:none";>{{ $field->questionId }}</h3> <br/>
-                          {{-- <h3 class="playerId" style="display:none";>{{ $playerId }}</h3> <br/> --}}
+                          <h3 class="playerId" style="display:none";>{{ $playerId }}</h3> <br/>
                           
                           @php
                               $option = $field->options;

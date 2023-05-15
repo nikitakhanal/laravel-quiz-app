@@ -16,7 +16,7 @@
         let selectedOption;
         // let data= [];
         let questionId = document.querySelector('.carousel-item.active .questionId').innerText;
-        // let playerId = document.querySelector('.carousel-item.active .playerId').innerText;
+        let playerId = document.querySelector('.carousel-item.active .playerId').innerText;
 
         /*** timer ***/
         const timer = document.querySelector('.carousel-item.active .timer');
@@ -44,7 +44,7 @@
 
           options.forEach(option => {
             option.addEventListener('click', event => {
-              // console.log("Player Id: "+playerId);
+              console.log("Player Id: "+playerId);
               console.log(question);
               console.log("Question Id: "+questionId);
               // data.push(question);
