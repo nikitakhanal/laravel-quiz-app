@@ -32,3 +32,4 @@ Route::get('/show', [OptionController::class, 'show'])->name('game.show');
 Route::post('/options', [OptionController::class, 'store']);
 Route::post('/player', [PlayerController::class, 'store']);
 Route::get('/game', [GameController::class, 'index'])->name('game');
+Route::post('/game/store', [GameController::class, 'store'])->name('storeGameData');

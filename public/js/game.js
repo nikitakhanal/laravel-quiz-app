@@ -57,6 +57,9 @@
               // data.push(selectedOption);
               // console.log(data);
               console.log("Option Id: "+event.target.getAttribute('id'));
+
+              postData(playerId, questionId, selectedOption);
+
               options.forEach(option => {
                 if(option !== event.target)
                   option.disabled = true;
@@ -80,3 +83,22 @@
         setTimeout(getActiveCarousel, 1000);
       });
     })();
+
+    async function postData(playerId, questionId, selectedOption){
+      let csrfToken = document.head.querySelector('meta[name="csrf-token"]').getAttribute('content');
+      const data = {playerId, questionId, selectedOption};
+      const res = await fetch("/game/store", 
+            {
+              method: 'POST',
+              body: JSON.stringify(data),
+              headers: {
+                "content-type": "application/json",
+                "X-CSRF-Token": csrfToken
+              },
+              credentials: "same-origin",
+            }
+      ); 
+
+      const text = await res.text();
+      console.log(text);
+    }
