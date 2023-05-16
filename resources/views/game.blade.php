@@ -35,6 +35,7 @@
                               $options = substr($option, 1, -1);
                               $options = explode("," , $options);
                               $optionId = 1;
+                              shuffle($options);
                               echo "<div class=\"options\">";
                                 foreach ($options as $option) {
                                   echo "<button id=\"$optionId\" class=\"btn btn-block btn-light option\" >".$option."</button>"."<br>";
