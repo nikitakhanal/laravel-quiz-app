@@ -17,17 +17,22 @@ class OptionController extends Controller
         return "Options added successfully";
     }
 
-    public function show(){
-        $playerId = request()->get('playerId');
-        $result = DB::table('options')
-        ->join('questions', 'options.questionId', '=', 'questions.id')
-        // ->select('questions.question as Question', 'options.options as Options')
-        ->select('*')
-        ->get();  
-        $result = json_decode($result);
-        shuffle($result);
-        return view('game')->with(["result"=>$result, "playerId"=>$playerId]);
-        // return view('game')->with(["result"=>$result]);
+    public function show(Request $req){
+        if (!session()->has('player')) {
+            return view('welcome');
+        } else{
+            // $playerId = request()->get('playerId');
+            $playerId = $req->session()->get('player');
+            $result = DB::table('options')
+            ->join('questions', 'options.questionId', '=', 'questions.id')
+            // ->select('questions.question as Question', 'options.options as Options')
+            ->select('*')
+            ->get();  
+            $result = json_decode($result);
+            shuffle($result);
+            return view('game')->with(["result"=>$result, "playerId"=>$playerId]);
+            // return view('game')->with(["result"=>$result]);
+        }
     }
 }
 
