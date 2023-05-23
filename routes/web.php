@@ -6,6 +6,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\OptionController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\ResultController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,4 @@ Route::post('/options', [OptionController::class, 'store']);
 Route::post('/player', [PlayerController::class, 'store']);
 Route::get('/game', [GameController::class, 'index'])->name('game');
 Route::post('/game/store', [GameController::class, 'store'])->name('storeGameData');
+Route::get('/result', [ResultController::class, 'show']);

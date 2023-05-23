@@ -44,9 +44,9 @@
 
           options.forEach(option => {
             option.addEventListener('click', event => {
-              console.log("Player Id: "+playerId);
-              console.log(question);
-              console.log("Question Id: "+questionId);
+              // console.log("Player Id: "+playerId);
+              // console.log(question);
+              // console.log("Question Id: "+questionId);
               // data.push(question);
               // data.push(questionId);
 
@@ -56,7 +56,7 @@
               console.log(selectedOption);
               // data.push(selectedOption);
               // console.log(data);
-              console.log("Option Id: "+event.target.getAttribute('id'));
+              // console.log("Option Id: "+event.target.getAttribute('id'));
 
               postData(playerId, questionId, selectedOption);
 
@@ -78,6 +78,7 @@
 
       nextbtn.addEventListener("click", () => {
         setTimeout(getActiveCarousel, 1000);
+        showResult();
       });
       prevbtn.addEventListener("click", () => {
         setTimeout(getActiveCarousel, 1000);
@@ -101,4 +102,19 @@
 
       const text = await res.text();
       console.log(text);
+    }
+
+    async function showResult(){
+      const activeItem = document.querySelector('.carousel-item.active');
+      const activeItemId = activeItem.getAttribute("id");
+      console.log(activeItemId);
+
+      if(parseInt(activeItemId) !== 9){ // 9 = index of the last question i.e the 10th qsn
+        return;
+      }
+      
+      const res = await fetch("/result"); 
+
+      const result = await res.json();
+      console.log(result);
     }

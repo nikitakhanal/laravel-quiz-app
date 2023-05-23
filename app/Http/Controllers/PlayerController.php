@@ -18,7 +18,7 @@ class PlayerController extends Controller
         // return redirect()->route("game.show");
 
         session()->put('player', $data);
-        session()->flash('player', $data);
+        // session()->flash('player', $data);
         return redirect()->action([OptionController::class, 'show']);
         // return redirect()->action([OptionController::class, 'show'], ['playerId' => $data]);
     }

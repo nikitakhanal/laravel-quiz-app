@@ -53,7 +53,7 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" for="username">Username: </label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" name="username" id="username">
+                        <input class="form-control" type="text" name="username" id="username" autofill="off">
                     </div>
                 </div>
             </div>

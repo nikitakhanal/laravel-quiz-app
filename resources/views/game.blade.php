@@ -37,7 +37,8 @@
                               shuffle($options);
                               echo "<div class=\"options\">";
                                 foreach ($options as $option) {
-                                  echo "<button id=\"$optionId\" class=\"btn btn-block btn-light option\" >".$option."</button>"."<br>";
+                                  // echo "<button id=\"$optionId\" class=\"btn btn-block btn-light option\" >".$option."</button>"."<br>";
+                                  echo "<button id=\"$optionId\" class=\"btn btn-light option\" >".$option."</button>";
                                   $optionId++;
                                 }
                               echo "</div>";
