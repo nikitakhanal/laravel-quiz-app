@@ -18,7 +18,7 @@
       <div class="carousel-inner">
         @foreach ($result as $index => $field)
         @php $active = ($index == 0) ? 'active' : ''; @endphp
-        <div class="carousel-item {{ $active }}" >
+        <div class="carousel-item {{ $active }}" id="{{$index}}" >
                     <div class="wrapper">
                       <div class="timer"> 00:00
                           {{-- <button class="time1">1:00</button>
@@ -32,8 +32,7 @@
                           
                           @php
                               $option = $field->options;
-                              $options = substr($option, 1, -1);
-                              $options = explode("," , $options);
+                              $options = json_decode($option);
                               $optionId = 1;
                               shuffle($options);
                               echo "<div class=\"options\">";
