@@ -107,18 +107,20 @@ async function showResult() {
   const res = await fetch("/result");
 
   const result = await res.json();
+  const correct = result.correct;
+  const selected = result.selected;
   console.log(result);
   
   // Create a map of correct options for easier access
   const correctOptionsMap = new Map();
-  result.correct.forEach(correctOption => {
+    correct.forEach(correctOption => {
     correctOptionsMap.set(correctOption.questionId, correctOption.option);
   });
 
   
   
   // Iterate over selected options and match them with the correct options
-  result.selected.forEach(selectedOption => {
+    selected.forEach(selectedOption => {
     const questionId = selectedOption.questionId;
     const selectedOptionValue = selectedOption.selectedOption;
     
@@ -131,12 +133,16 @@ async function showResult() {
       } else {
         console.log(`Question ${questionId}: Selected option "${selectedOptionValue}" is incorrect. The correct option is "${correctOptionValue}".`);
       }
-    } else {
-      console.log(`you missed this question`);
-    }
+    } 
   });
   const scoreElement = document.getElementById("score");
   // scoreElement.style.backgroundColor = "red"; 
   scoreElement.innerHTML= `your score is ${score}.`;
+
+  if(correct.length !== selected.length){
+    const difference = Math.abs(correct.length - selected.length);
+    console.log(`You missed ${difference} questions`);
+    scoreElement.innerHTML += `You missed ${difference} questions`;
+  }
   
 }
