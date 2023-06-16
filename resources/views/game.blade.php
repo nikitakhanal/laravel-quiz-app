@@ -38,7 +38,7 @@
                               echo "<div class=\"options\">";
                                 foreach ($options as $option) {
                                   // echo "<button id=\"$optionId\" class=\"btn btn-block btn-light option\" >".$option."</button>"."<br>";
-                                  echo "<button id=\"$optionId\" class=\"btn btn-light option\" >".$option."</button>";
+                                  echo "<button id=\"$optionId\" class=\"btn btn-block btn-light option\" >".$option."</button>";
                                   $optionId++;
                                 }
                               echo "</div>";
@@ -49,10 +49,10 @@
             </div>
         @endforeach
           </div>
-      <a class="carousel-control-prev" href="#quizCarousel" role="button" data-slide="prev">
+      {{-- <a class="carousel-control-prev" href="#quizCarousel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
-      </a>
+      </a> --}}
       <a class="carousel-control-next" href="#quizCarousel" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
