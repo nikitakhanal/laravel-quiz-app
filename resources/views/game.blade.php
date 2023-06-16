@@ -58,6 +58,8 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+
+    <div class="score" id="score" style="width: 100px; position: absolute; top: 10px; left: 10px;"></div>
     
 
   
